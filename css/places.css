@@ -1,0 +1,259 @@
+/* ___________GENERIC__________ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--navy-blue);
+  min-height: 100vh;
+  color: var(--light-grey);
+}
+
+a {
+  color: var(--light-grey);
+}
+
+:root {
+  --green: #64ffda;
+  --dark-green: #47b399;
+  --navy-blue: #0a192f;
+  --light-navy-blue: #112240;
+  --lightest-navy-blue: #233554;
+  --grey: #8892b0;
+  --light-grey: #b2bbd7;
+  --lightest-grey: #ced4e8;
+  --white: aliceblue;
+
+  --card-details-display: absolute;
+  --card-details-translate: -300px;
+}
+
+/* ____________________________ */
+/* ______MAIN STYLING_______ */
+/* ____________________________ */
+
+.places-hero {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 8rem 0;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("./../content/places-hero-bg.jpg");
+  background-size: cover;
+}
+
+.places-hero .places-hero-inner {
+  max-width: 950px;
+  width: 90%;
+
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+}
+
+.places-hero .places-hero-inner .places-hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.places-hero-header div:nth-child(1) {
+  color: var(--green);
+  font-size: 1.15rem;
+}
+
+.places-hero-header div:nth-child(2) {
+  color: var(--lightest-grey);
+  font-size: clamp(50px, 8vw, 90px);
+  font-weight: bold;
+}
+
+.places-hero-header div:nth-child(3) {
+  color: var(--light-grey);
+  max-width: 400px;
+  margin-bottom: 1rem;
+}
+
+.places-hero-header form {
+  background-color: rgba(10, 25, 47, 0.5);
+  padding: 0.3em;
+  border-radius: 2em;
+  border: 2px solid var(--green);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 350px;
+}
+
+.places-hero-header form input {
+  background: none;
+  outline: none;
+  border: none;
+  /* border: 1px solid yellow; */
+  color: var(--lightest-grey);
+  padding: 0.4em 0.7em;
+  font-size: 1.1em;
+  width: 100%;
+}
+
+.places-hero-header form button {
+  border: none;
+  background-color: var(--green);
+  padding: 0.4em 1.5em;
+  border-radius: 2em;
+}
+
+.places-hero-side {
+  display: grid;
+  place-items: center;
+}
+
+.places-hero-side a {
+  background-color: var(--light-grey);
+  border: 4px solid var(--lightest-grey);
+  color: var(--light-navy-blue);
+  max-width: 170px;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.places-hero-side a:hover {
+  box-shadow: 0 0 3rem var(--light-grey);
+}
+
+/* __________PLACES____________ */
+
+.places {
+  margin: 10rem 0;
+}
+
+.places .places-inner {
+  max-width: 1200px;
+  width: 90%;
+  margin-inline: auto;
+}
+
+.places-inner h2 {
+  text-align: center;
+  color: var(--green);
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 2em;
+}
+
+.places-inner .places-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  column-gap: 2em;
+  row-gap: 3em;
+}
+
+.place-card {
+  border-radius: 1em;
+  overflow: hidden;
+  position: relative;
+}
+
+.place-card:hover {
+  --card-details-display: relative;
+  --card-details-translate: 0;
+}
+
+.place-card .place-card-img {
+  width: 100%;
+  display: grid;
+  position: relative;
+  z-index: 100;
+}
+
+.place-card .place-card-img img {
+  width: 100%;
+  height: 100%;
+  grid-area: 1 / 1/-1/-1;
+}
+
+.place-card .place-card-details {
+  text-align: center;
+  background-color: var(--lightest-navy-blue);
+  position: var(--card-details-display);
+  top: var(--card-details-translate);
+  left: 0;
+  z-index: 99;
+  padding-top: 1em;
+}
+
+.place-card .place-card-details h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--green);
+  margin-bottom: 0.7em;
+}
+
+.place-card .place-card-details p {
+  line-height: 1.3;
+  margin-bottom: 0.7em;
+  width: 90%;
+  margin-inline: auto;
+}
+
+.place-card .place-card-details a {
+  display: inline-block;
+  width: 100%;
+  /* align-self: flex-start; */
+  margin-top: 0.5em;
+  background: none;
+  outline: none;
+  border-top: 1px solid var(--green);
+  padding: 0.9em 1.4em;
+  background-color: var(--green);
+  color: var(--navy-blue);
+}
+
+.place-card .place-card-details a:hover {
+  border-top: 1px solid var(--dark-green);
+  background-color: var(--dark-green);
+}
+
+/* __________MEDIA QUERIES___________ */
+
+@media (width > 550px) {
+  /* HERO */
+
+  .places-hero .places-hero-inner .places-hero-header {
+    padding-left: 2em;
+  }
+}
+
+@media (width <= 550px) {
+  /* HERO */
+
+  .places-hero .places-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 4em;
+  }
+
+  .places-hero .places-hero-inner .places-hero-header {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* PLACES */
+
+  .place-card .place-card-details {
+    position: relative;
+    top: 0;
+  }
+}

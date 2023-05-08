@@ -1,0 +1,281 @@
+/* ___________GENERIC__________ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--navy-blue);
+  min-height: 100vh;
+  color: var(--light-grey);
+}
+
+a {
+  color: var(--light-grey);
+}
+
+:root {
+  --green: #64ffda;
+  --navy-blue: #0a192f;
+  --light-navy-blue: #112240;
+  --lightest-navy-blue: #233554;
+  --grey: #8892b0;
+  --light-grey: #b2bbd7;
+  --lightest-grey: #ced4e8;
+  --white: aliceblue;
+
+  /* --o: absolute;
+  --h: -200px; */
+}
+
+/* ________HERO________ */
+
+.personalities-hero {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 8rem 0;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("./../content/personalities-hero-bg.jpeg");
+  background-size: cover;
+}
+
+.personalities-hero .personalities-hero-inner {
+  max-width: 950px;
+  width: 90%;
+
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+}
+
+.personalities-hero .personalities-hero-inner .personalities-hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.personalities-hero-header div:nth-child(1) {
+  color: var(--green);
+  font-size: 1.15rem;
+}
+
+.personalities-hero-header div:nth-child(2) {
+  color: var(--lightest-grey);
+  font-size: clamp(35px, 7vw, 80px);
+  font-weight: bold;
+}
+
+.personalities-hero-header div:nth-child(3) {
+  color: var(--light-grey);
+  max-width: 400px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.personalities-hero-header form {
+  background-color: rgba(10, 25, 47, 0.5);
+  padding: 0.3em;
+  border-radius: 2em;
+  border: 2px solid var(--green);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 350px;
+}
+
+.personalities-hero-header form input {
+  background: none;
+  outline: none;
+  border: none;
+  /* border: 1px solid yellow; */
+  color: var(--lightest-grey);
+  padding: 0.4em 0.7em;
+  font-size: 1.1em;
+  width: 100%;
+}
+
+.personalities-hero-header form button {
+  border: none;
+  background-color: var(--green);
+  padding: 0.4em 1.5em;
+  border-radius: 2em;
+}
+
+.personalities-hero-side {
+  display: grid;
+  place-items: center;
+}
+
+.personalities-hero-side a {
+  background-color: var(--light-grey);
+  border: 4px solid var(--lightest-grey);
+  color: var(--light-navy-blue);
+  max-width: 170px;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.personalities-hero-side a:hover {
+  box-shadow: 0 0 3rem var(--light-grey);
+}
+
+/* ________CITIES CARD__________ */
+
+.personalities {
+  margin: 10rem 0;
+}
+
+.personalities .personalities-inner {
+  margin-inline: auto;
+  max-width: 1200px;
+  width: 90%;
+}
+
+.personalities-inner .personalities-heading-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5em;
+  color: var(--green);
+}
+
+.personalities-inner .personalities-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  row-gap: 3.5em;
+  column-gap: 1.5em;
+}
+
+.personalities-inner .personalities-content .personality-card {
+  background-color: var(--lightest-navy-blue);
+  border-radius: 1.2em 1.2em 0 0;
+  overflow: hidden;
+}
+
+.personality-card .personality-card-img {
+  width: 100%;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.personality-card .personality-card-img::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* border-radius: 1em 1em 0 0; */
+  opacity: 0.6;
+  background-image: linear-gradient(135deg, #0100ec, #fb36f4);
+}
+
+.personality-card:nth-child(2n) .personality-card-img::after {
+  background-image: linear-gradient(135deg, #2bdce3, #42ffdb);
+  opacity: 0.55;
+}
+
+.personality-card .personality-card-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.personality-card .personality-card-details {
+  margin-block: auto;
+  padding: 1.5em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2em;
+}
+
+.personality-card .personality-card-details h3 {
+  font-size: 1.5rem;
+  color: var(--green);
+}
+
+.personality-card .personality-card-details p {
+  line-height: 1.6;
+  color: var(--lightest-grey);
+  font-size: 0.9rem;
+}
+
+.personality-card .personality-card-details button {
+  align-self: flex-start;
+  margin-top: 0.5em;
+  background: none;
+  outline: none;
+  border: 1px solid var(--green);
+  padding: 0.5em 1.4em;
+  color: var(--green);
+}
+
+.personality-card .personality-card-details button:hover {
+  background-color: var(--green);
+  color: var(--navy-blue);
+}
+
+/* .h {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 2px solid wheat;
+}
+
+.hey {
+  width: 300px;
+  overflow: hidden;
+}
+
+.hey:hover {
+  --h: 0;
+  --o: relative;
+}
+
+.c1 {
+  background-color: green;
+  position: relative;
+  z-index: 100;
+}
+
+.c2 {
+  background-color: red;
+  position: var(--o);
+  top: var(--h);
+  z-index: 99;
+} */
+
+/* _________MEDIA QUERIES_________ */
+@media (width > 700px) {
+  /* HERO */
+
+  .personalities-hero .personalities-hero-inner .personalities-hero-header {
+    padding-left: 2em;
+  }
+}
+
+@media (width <= 700px) {
+  /* HERO */
+
+  .personalities-hero .personalities-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 4em;
+  }
+
+  .personalities-hero .personalities-hero-inner .personalities-hero-header {
+    align-items: center;
+    text-align: center;
+  }
+}
